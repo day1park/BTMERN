@@ -58,7 +58,7 @@ router.post("/register", (req, res) => {
 // @access public
 router.post("/login", (req, res) => {
   const email = req.body.email;
-  const password = req.body.passsword;
+  const password = req.body.password;
 
   // find the user by email
   User.findOne({ email }).then(user => {
@@ -69,7 +69,7 @@ router.post("/login", (req, res) => {
 
     //check password
     bcrypt.compare(password, user.password).then(isMatch => {
-      if (!isMatch) {
+      if (isMatch) {
         res.json({ msg: "Success" });
       } else {
         return res.status(400).json({ password: "password incorrect" });
