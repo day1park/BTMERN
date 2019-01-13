@@ -1,4 +1,5 @@
 const Validator = require("validator");
+import isEmpty from "./is-empty";
 
 module.exports = function validateRegisterInput(data) {
   let errors = {};
@@ -10,7 +11,8 @@ module.exports = function validateRegisterInput(data) {
   }
   return {
     errors,
-    isValid: errors
+    // isValid: errors
     //isValid want to check if it is empty has to be a string, errors is an object
+    isValid: isEmpty(errors)
   };
 };
