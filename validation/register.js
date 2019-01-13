@@ -11,5 +11,6 @@ module.exports = function validateRegisterInput(data) {
   return {
     errors,
     isValid: errors
+    //isValid want to check if it is empty has to be a string, errors is an object
   };
 };
