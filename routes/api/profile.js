@@ -67,7 +67,8 @@ router.get("/handle/:handle", (req, res) => {
 // @access public
 router.get("/user/:user_id", (req, res) => {
   const errors = {};
-  Profile.findOne({ handle: req.params.user_id }) // grabs /:user_id from the url
+
+  Profile.findOne({ user: req.params.user_id }) // grabs /:user_id from the url
     .populate("user", ["name", "avatar"])
     .then(profile => {
       if (!profile) {
@@ -77,7 +78,9 @@ router.get("/user/:user_id", (req, res) => {
 
       res.json(profile);
     })
-    .catch(err => res.status(404).json(err));
+    .catch(err =>
+      res.status(404).json({ profile: "there is no profile for this user" })
+    );
 });
 
 // @route POST api/profile/
