@@ -18,6 +18,21 @@ module.exports = function validateProfileInput(data) {
     errors.handle = "Handle is required";
   }
 
+  if (Validator.isEmpty(data.status)) {
+    errors.status = "status field must be filled out";
+  }
+
+  if (Validator.isEmpty(data.skills)) {
+    errors.skills = "skills field is required";
+  }
+
+  // check if its not empty, if it is not empty it will check if it is a valid url
+  if (!isEmpty(data.website)) {
+    if (!Validator.isURL(data.website)) {
+      errors.website = "not a vaild URL";
+    }
+  }
+
   return {
     errors,
     // isValid: errors
