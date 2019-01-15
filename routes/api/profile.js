@@ -62,6 +62,24 @@ router.get("/handle/:handle", (req, res) => {
     .catch(err => res.status(404).json(err));
 });
 
+// @route GET api/profile/user/:user_id <--backend route
+// @desc get profile by user ID
+// @access public
+router.get("/user/:user_id", (req, res) => {
+  const errors = {};
+  Profile.findOne({ handle: req.params.user_id }) // grabs /:user_id from the url
+    .populate("user", ["name", "avatar"])
+    .then(profile => {
+      if (!profile) {
+        errors.noprofile = "there is no profile for this user";
+        res.status(404).json(errors);
+      }
+
+      res.json(profile);
+    })
+    .catch(err => res.status(404).json(err));
+});
+
 // @route POST api/profile/
 // @desc create or edit user pofile
 // @access private //protected route so use passport
