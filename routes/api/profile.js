@@ -44,6 +44,63 @@ router.get(
   }
 );
 
+// @route GET api/profile/all
+// @desc get all profiles
+// @access public
+router.get("/all", (req, res) => {
+  const errors = {};
+
+  Profile.find()
+    .populate("user", ["name", "avatar"])
+    .then(profiles => {
+      if (!profiles) {
+        errors.noprofile = "there are no profiles";
+        return res.status(404).json(errors);
+      }
+      res.json(profiles);
+    })
+    .catch(err => res.status(404).json({ profile: "there are no profiles" }));
+});
+
+// @route GET api/profile/handle/:handle <--backend route
+// @desc get profile by handle
+// @access public
+router.get("/handle/:handle", (req, res) => {
+  const errors = {};
+  Profile.findOne({ handle: req.params.handle }) // grabs /:handle from the url
+    .populate("user", ["name", "avatar"])
+    .then(profile => {
+      if (!profile) {
+        errors.noprofile = "there is no profile for this user";
+        res.status(404).json(errors);
+      }
+
+      res.json(profile);
+    })
+    .catch(err => res.status(404).json(err));
+});
+
+// @route GET api/profile/user/:user_id <--backend route
+// @desc get profile by user ID
+// @access public
+router.get("/user/:user_id", (req, res) => {
+  const errors = {};
+
+  Profile.findOne({ user: req.params.user_id }) // grabs /:user_id from the url
+    .populate("user", ["name", "avatar"])
+    .then(profile => {
+      if (!profile) {
+        errors.noprofile = "there is no profile for this user";
+        res.status(404).json(errors);
+      }
+
+      res.json(profile);
+    })
+    .catch(err =>
+      res.status(404).json({ profile: "there is no profile for this user" })
+    );
+});
+
 // @route POST api/profile/
 // @desc create or edit user pofile
 // @access private //protected route so use passport
