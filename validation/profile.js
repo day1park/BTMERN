@@ -33,6 +33,36 @@ module.exports = function validateProfileInput(data) {
     }
   }
 
+  if (!isEmpty(data.youtube)) {
+    if (!Validator.isURL(data.youtube)) {
+      errors.youtube = "not a vaild URL";
+    }
+  }
+
+  if (!isEmpty(data.twitter)) {
+    if (!Validator.isURL(data.twitter)) {
+      errors.twitter = "not a vaild URL";
+    }
+  }
+
+  if (!isEmpty(data.facebook)) {
+    if (!Validator.isURL(data.facebook)) {
+      errors.facebook = "not a vaild URL";
+    }
+  }
+
+  if (!isEmpty(data.linkedin)) {
+    if (!Validator.isURL(data.linkedin)) {
+      errors.linkedin = "not a vaild URL";
+    }
+  }
+
+  if (!isEmpty(data.instagram)) {
+    if (!Validator.isURL(data.instagram)) {
+      errors.instagram = "not a vaild URL";
+    }
+  }
+
   return {
     errors,
     // isValid: errors
