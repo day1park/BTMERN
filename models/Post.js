@@ -42,7 +42,7 @@ const PostSchema = new Schema({
         type: String
       },
       date: {
-        type: Date
+        type: Date,
         default: Date.now
       }
     }
@@ -53,4 +53,4 @@ const PostSchema = new Schema({
   }
 });
 
-module.exports = Post = mongoose.model('post', PostSchema)
+module.exports = Post = mongoose.model("post", PostSchema);
