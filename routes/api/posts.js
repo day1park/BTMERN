@@ -2,6 +2,8 @@
 
 const express = require("express");
 const router = express.Router();
+const mongoose = require("mongoose");
+const passport = require("passport");
 
 // @route GET api/posts/test
 // @desc tests post route
@@ -11,5 +13,9 @@ router.get("/test", (req, res) =>
     msg: "posts works"
   })
 );
+
+// @route POST api/posts
+// @desc create post
+// @access private
 
 module.exports = router;
