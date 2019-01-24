@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import classnames from "classnames";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
+import TextFieldGroup from "../common/TextFieldGroup";
 
 class Register extends Component {
   constructor() {
@@ -57,7 +58,7 @@ class Register extends Component {
               <h1 className="display-4 text-center">Sign Up</h1>
               <p className="lead text-center">Create your DevLinks account</p>
               <form noValidate onSubmit={this.onSubmit}>
-                <div className="form-group">
+                {/* <div className="form-group">
                   <input
                     type="text"
                     className={classnames("form-control form-control-lg", {
@@ -71,8 +72,15 @@ class Register extends Component {
                   {errors.name && (
                     <div className="invalid-feedback">{errors.name} </div>
                   )}
-                </div>
-                <div className="form-group">
+                </div> */}
+                <TextFieldGroup
+                  placeholder="Name"
+                  name="name"
+                  value={this.state.name}
+                  onChange={this.onChange}
+                  error={errors.name}
+                />
+                {/* <div className="form-group">
                   <input
                     type="email"
                     className={classnames("form-control form-control-lg", {
@@ -90,8 +98,17 @@ class Register extends Component {
                     This site uses Gravatar so if you want a profile image, use
                     a Gravatar email
                   </small>
-                </div>
-                <div className="form-group">
+                </div> */}
+                <TextFieldGroup
+                  placeholder="Email"
+                  name="email"
+                  type="email"
+                  value={this.state.email}
+                  onChange={this.onChange}
+                  error={errors.email}
+                  infor="this site uses Gravatar so please use a gravatar email for a profile image"
+                />
+                {/* <div className="form-group">
                   <input
                     type="password"
                     className={classnames("form-control form-control-lg", {
@@ -105,8 +122,16 @@ class Register extends Component {
                   {errors.password && (
                     <div className="invalid-feedback">{errors.password} </div>
                   )}
-                </div>
-                <div className="form-group">
+                </div> */}
+                <TextFieldGroup
+                  placeholder="Password"
+                  name="password"
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.onChange}
+                  error={errors.password}
+                />
+                {/* <div className="form-group">
                   <input
                     type="password"
                     className={classnames("form-control form-control-lg", {
@@ -120,7 +145,15 @@ class Register extends Component {
                   {errors.password2 && (
                     <div className="invalid-feedback">{errors.password2} </div>
                   )}
-                </div>
+                </div> */}
+                <TextFieldGroup
+                  placeholder="Confirm Password"
+                  name="password2"
+                  type="password2"
+                  value={this.state.password2}
+                  onChange={this.onChange}
+                  error={errors.password2}
+                />
                 <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>
             </div>
