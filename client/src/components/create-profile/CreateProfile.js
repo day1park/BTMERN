@@ -126,6 +126,30 @@ class CreateProfile extends Component {
                   error={errors.website}
                   info="your portfolio website"
                 />
+                <TextFieldGroup
+                  placeholder="Location"
+                  name="location"
+                  value={this.state.location}
+                  onChange={this.onChange}
+                  error={errors.location}
+                  info="where are you located? based at, could by city or city and state e.g. Sydney, NSW"
+                />
+                <TextFieldGroup
+                  placeholder="* Skills"
+                  name="skills"
+                  value={this.state.skills}
+                  onChange={this.onChange}
+                  error={errors.skills}
+                  info="please list the skills and use comma seperate values e.g. HTML,CSS,JavaScript"
+                />
+                <TextFieldGroup
+                  placeholder="Github Username"
+                  name="githubusername"
+                  value={this.state.githubusername}
+                  onChange={this.onChange}
+                  error={errors.githubusername}
+                  info="if you want your latest repos and github link, include your username"
+                />
               </form>
             </div>
           </div>
