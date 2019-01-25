@@ -110,6 +110,22 @@ class CreateProfile extends Component {
                   error={errors.status}
                   info="please select an option of what your career status is at"
                 />
+                <TextFieldGroup
+                  placeholder="Company"
+                  name="company"
+                  value={this.state.company}
+                  onChange={this.onChange}
+                  error={errors.company}
+                  info="could be your company or one you work for"
+                />
+                <TextFieldGroup
+                  placeholder="Website"
+                  name="website"
+                  value={this.state.website}
+                  onChange={this.onChange}
+                  error={errors.website}
+                  info="your portfolio website"
+                />
               </form>
             </div>
           </div>
