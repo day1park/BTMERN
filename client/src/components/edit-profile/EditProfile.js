@@ -10,7 +10,6 @@ import { createProfile, getCurrentProfile } from "../../actions/profileActions";
 import isEmpty from "../../validation/is-empty";
 
 class CreateProfile extends Component {
-  //component state values fields
   constructor(props) {
     super(props);
     this.state = {
@@ -30,6 +29,7 @@ class CreateProfile extends Component {
       instagram: "",
       errors: {}
     };
+
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -40,9 +40,7 @@ class CreateProfile extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
-      this.setState({
-        errors: nextProps.errors
-      });
+      this.setState({ errors: nextProps.errors });
     }
 
     if (nextProps.profile.profile) {
@@ -83,7 +81,7 @@ class CreateProfile extends Component {
         website: profile.website,
         location: profile.location,
         status: profile.status,
-        skills: profile.skills,
+        skills: skillsCSV,
         githubusername: profile.githubusername,
         bio: profile.bio,
         twitter: profile.twitter,
