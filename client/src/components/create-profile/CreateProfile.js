@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import TextFieldGroup from "../common/TextFieldGroup";
 
 class CreateProfile extends Component {
   //component state values fields
@@ -8,39 +9,49 @@ class CreateProfile extends Component {
     super(props);
     this.state = {
       displaySocialInputs: false,
-      handle: '',
-      company: '',
-      website: '',
-      location: '',
-      status: '',
-      skills: '',
-      githubusername: '',
-      bio: '',
-      twitter: '',
-      facebook: '',
-      linkedin: '',
-      youtube: '',
-      instagram: '',
+      handle: "",
+      company: "",
+      website: "",
+      location: "",
+      status: "",
+      skills: "",
+      githubusername: "",
+      bio: "",
+      twitter: "",
+      facebook: "",
+      linkedin: "",
+      youtube: "",
+      instagram: "",
       errors: {}
-    }
+    };
   }
   render() {
     return (
-      <div>
-        <h1>hello universe</h1>
+      <div className="create-profile">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 m-auto">
+              <h1 className="display-4 text-center">Create Your Profile</h1>
+              <p className="lead text-center">
+                please provide info to make your profile
+              </p>
+              <small className="d-block pb-3">* = required fields</small>
+            </div>
+          </div>
+        </div>
       </div>
-    )
+    );
   }
 }
 
 CreateProfile.propTypes = {
   profile: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
-}
+};
 
-const mapStateToProps = state = > ({
+const mapStateToProps = state => ({
   profile: state.profile,
   errors: state.errors
-})
+});
 
-export default connect(null)(CreateProfile)
+export default connect(null)(CreateProfile);
