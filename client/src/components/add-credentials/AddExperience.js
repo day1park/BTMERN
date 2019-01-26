@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import { TextFieldGroup } from "../common/TextAreaFieldGroup";
-import { TextAreaFieldGroup } from "../common/TextAreaFieldGroup";
+import TextFieldGroup from "../common/TextFieldGroup";
+import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Subscription } from "rxjs";
@@ -90,6 +90,19 @@ class AddExperience extends Component {
                     Current Job
                   </label>
                 </div>
+                <TextAreaFieldGroup
+                  placeholder="Job Description"
+                  name="description"
+                  value={this.state.description}
+                  onChange={this.onChange}
+                  error={errors.description}
+                  info="tell us about the position"
+                />
+                <input
+                  type="submit"
+                  value="Submit"
+                  className="btn btn-info btn-block mt-4"
+                />
               </form>
             </div>
           </div>
