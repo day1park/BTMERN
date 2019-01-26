@@ -4,7 +4,6 @@ import TextFieldGroup from "../common/TextFieldGroup";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Subscription } from "rxjs";
 
 class AddExperience extends Component {
   constructor(props) {
