@@ -10,18 +10,19 @@ class Profiles extends Component {
   };
 
   render() {
-    const { profiles, loading } = this.profile;
+    const { profiles, loading } = this.props.profile;
     let profileItems;
 
     if (profiles === null || loading) {
       profileItems = <Spinner />;
     } else {
       if (profiles.length > 0) {
-        <h1>Profiles will display here</h1>;
+        profileItems = <h1>Profiles will display here</h1>;
       } else {
         profileItems = <h4>No Profiles Found...</h4>;
       }
     }
+
     return (
       <div className="profiles">
         <div className="container">
