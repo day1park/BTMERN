@@ -1,4 +1,4 @@
-const initalState = {
+const initialState = {
   posts: [],
   post: {},
   loading: false
