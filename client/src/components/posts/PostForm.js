@@ -11,6 +11,8 @@ class PostForm extends Component {
       text: "",
       errors: {}
     };
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
   render() {
     return (
@@ -18,11 +20,14 @@ class PostForm extends Component {
         <div className="card card-info">
           <div className="card-header bg-info text-white">Say Somthing...</div>
           <div className="card-body">
-            <form>
+            <form onSubmit={this.onSubmit}>
               <div className="form-group">
-                <textarea
-                  className="form-control form-control-lg"
-                  placeholder="Create a post"
+                <TextAreaFieldGroup
+                  placeholder="Create a Post"
+                  name="text"
+                  value={this.state.text}
+                  onChange={this.onChange}
+                  error={errors.text}
                 />
               </div>
               <button type="submit" className="btn btn-dark">
