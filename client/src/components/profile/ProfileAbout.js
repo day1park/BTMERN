@@ -25,7 +25,7 @@ class ProfileAbout extends Component {
             <h3 class="text-center text-info">{firstName}'s Bio</h3>
             <p class="lead">
               {isEmpty(profile.bio) ? (
-                <span>{firstName} does not have a bio</span>
+                <span>{lastName} does not have a bio</span>
               ) : (
                 <span>{profile.bio}</span>
               )}
