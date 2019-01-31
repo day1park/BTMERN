@@ -25,6 +25,8 @@ class PostForm extends Component {
   }
 
   render() {
+    const { errors } = this.state;
+
     return (
       <div className="post-form mb-3">
         <div className="card card-info">
@@ -51,4 +53,18 @@ class PostForm extends Component {
   }
 }
 
-export default PostForm;
+PostForm.propTypes = {
+  addPost: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
+
+const mapStatetoProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(
+  mapStatetoProps,
+  { addPost }
+)(PostForm);
