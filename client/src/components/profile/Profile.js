@@ -19,6 +19,10 @@ class Profile extends Component {
     return (
       <div>
         <h1> profile about</h1>
+        <ProfileHeader />
+        <ProfileAbout />
+        <ProfileCreds />
+        <ProfileGithub />
       </div>
     );
   }
