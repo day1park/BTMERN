@@ -11,6 +11,7 @@ class PostForm extends Component {
       text: "",
       errors: {}
     };
+
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -33,9 +34,7 @@ class PostForm extends Component {
     };
 
     this.props.addPost(newPost);
-    this.setState({
-      text: ""
-    });
+    this.setState({ text: "" });
   }
 
   onChange(e) {
@@ -53,7 +52,7 @@ class PostForm extends Component {
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
                 <TextAreaFieldGroup
-                  placeholder="Create a Post"
+                  placeholder="Create a post"
                   name="text"
                   value={this.state.text}
                   onChange={this.onChange}
@@ -77,12 +76,12 @@ PostForm.propTypes = {
   errors: PropTypes.object.isRequired
 };
 
-const mapStatetoProps = state => ({
+const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors
 });
 
 export default connect(
-  mapStatetoProps,
+  mapStateToProps,
   { addPost }
 )(PostForm);
