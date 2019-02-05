@@ -1,3 +1,7 @@
+body {
+  background-color: #f5f3fa;
+}
+
 img {
   width: 100%;
 }
@@ -36,4 +40,12 @@ img {
 
 .form-control::placeholder {
   color: #bbb !important;
+}
+
+.wrapper {
+  min-height: calc(100vh - 70px);
+}
+
+footer {
+  height: 50px;
 }

@@ -10,12 +10,12 @@ const PrivateRoute = ({ component: Component, auth, ...rest }) => (
       auth.isAuthenticated === true ? (
         <Component {...props} />
       ) : (
-        <Redirect to="/login" />
+        <Redirect to="/" />
       )
     }
   />
 );
-// check if authenticated if it is it will load the component if it is not it will redirect to login
+// check if authenticated if it is it will load the component if it is not it will redirect to landingpage
 
 PrivateRoute.propTypes = {
   auth: PropTypes.object.isRequired
