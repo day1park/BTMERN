@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { ADD_POST, GET_ERROR, GET_POSTS, POST_LOADING } from "./types";
+import { ADD_POST, GET_ERRORS, GET_POSTS, POST_LOADING } from "./types";
 
 // ADD post
 export const addPost = postData => dispatch => {
