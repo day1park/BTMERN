@@ -38,9 +38,10 @@ img {
   color: #bbb !important;
 }
 
+.wrapper {
+  min-height: calc(100vh - 70px);
+}
+
 footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  height: 50px;
 }
