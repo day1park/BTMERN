@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
 import { Link } from "react-router-dom";
-import deletePost from "../../actions/postActions";
+import { deletePost } from "../../actions/postActions";
 
 class PostItem extends Component {
   onDeleteClick(id) {
-    console.log(id);
+    this.props.deletePost(id);
   }
   render() {
     const { post, auth } = this.props;
